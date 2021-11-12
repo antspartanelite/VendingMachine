@@ -2,18 +2,22 @@ package com.company.service;
 
 import com.company.dao.AuditDAO;
 import com.company.dao.InventoryDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Locale;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@Component
 public class ServiceLayer {
     InventoryDao inventoryDao;
     AuditDAO auditDAO;
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     Date date;
 
+    @Autowired
     public ServiceLayer(InventoryDao inventoryDao, AuditDAO auditDAO){
         this.inventoryDao = inventoryDao;
         this.auditDAO = auditDAO;

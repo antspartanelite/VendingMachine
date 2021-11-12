@@ -1,10 +1,13 @@
 package com.company.dao;
 
+import org.springframework.stereotype.Component;
+
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+@Component
 public class InventoryDao {
 
     //Writes the collection to file

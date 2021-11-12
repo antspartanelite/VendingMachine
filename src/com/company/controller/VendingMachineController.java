@@ -5,21 +5,29 @@ import com.company.exception.InsufficientFundsException;
 import com.company.exception.NoItemInventoryException;
 import com.company.service.ServiceLayer;
 import com.company.ui.UserIOHandler;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Locale;
 
+@Component
 public class VendingMachineController {
     ServiceLayer serviceLayer;
     UserIOHandler ioHandler;
 
-    //Executes the vending machine software
-    public void execute(ServiceLayer serviceLayer, UserIOHandler ioHandler) {
+    @Autowired
+    public VendingMachineController(ServiceLayer serviceLayer, UserIOHandler ioHandler){
         //Initialises the user IO and file io objects required
-        this.serviceLayer = serviceLayer;
-        serviceLayer.updateAuditLog("Program started.");
         this.ioHandler = ioHandler;
+        this.serviceLayer = serviceLayer;
+    }
+
+    //Executes the vending machine software
+    public void execute() {
+        serviceLayer.updateAuditLog("Program started.");
+
 
         HashMap<String, String[]> inventory = serviceLayer.loadInventory();
 

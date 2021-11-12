@@ -1,12 +1,14 @@
 package com.company.ui;
 
 import com.company.dto.Coin;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.Scanner;
 
+@Component
 public class UserIOHandler {
     Scanner inputReader;
 
